@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Some prerendered cards</title>
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+</head>
+
+<body>
+    <script>
+      var initialData = {showcase: <%- JSON.stringify(ShowcaseData) %>};
+    </script>
+
+    <main id="main">
+
+    <div class="cards-container">
+      <h1>Test Showcase</h1>
+
+      <% var resource = ShowcaseData.tabs[0].resources[0] %>
+      <% resource.results.forEach ( function (result) { %>
+      <article id="<%= result.id %>" style="background: linear-gradient(<%= result.colorTop %>, <%= result.colorBottom %>)"><%= result.title %></article>
+      <% }) %>
+
+    </div>
+
+    </main>
+
+    <script src="bundle.js"></script>
+</body>
+
+</html>
